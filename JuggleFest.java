@@ -10,8 +10,6 @@ import java.util.Random;
 import java.util.Collections;
 import java.util.Comparator;
 
-
-
 public class JuggleFest
 {
 	public static void main(String[] args) throws IOException {
@@ -85,7 +83,7 @@ class JCMatcher
 	private List< Juggler > _jugglers;	
 	private int ncircuits;	// Number of Circuits to be matched
 	private int njugglers;	// Number of Jugglers to be matched
-	private int njpc;				// Number of Jugglers per Circuit
+	private int njpc;		// Number of Jugglers per Circuit
 
 	/** Constructor */
 	public JCMatcher( List< Circuit > circuits, List< Juggler > jugglers )
@@ -115,14 +113,14 @@ class JCMatcher
 				if ( !juggler.assigned ) {
 					int ind = juggler.index + 1;
 					int[] preferences = juggler.getPreferences();	// Get this Juggler's preferences
-					int[] scores = juggler.getScores();						// Get scores vs. preference
+					int[] scores = juggler.getScores();				// Get scores vs. preference
 
 					// Loop till we've tried all Circuits in preferences
 					
 					while ( ind < preferences.length ) {
 						Circuit circuit = _circuits.get( preferences[ ind ] );	// Get the next Circuit in preferences
-						juggler.curcircuit = circuit.getNumber();								// Store its number
-						juggler.curscore = scores[ ind ];												// Store the match score
+						juggler.curcircuit = circuit.getNumber();				// Store its number
+						juggler.curscore = scores[ ind ];						// Store the match score
 						juggler.index = ind;																		// Update index
 
 						// If the Circuit is not filled, assign this Juggler to it;
@@ -199,13 +197,13 @@ class JCMatcher
 
 class Circuit
 {
-	private int _number;							// The number of this Circuit /starting from 0/
+	private int _number;				// The number of this Circuit /starting from 0/
 	private int _h;
 	private int _e;
 	private int _p;
 	private List< Juggler > jugglers;	// The Jugglers assigned to this Circuit
 
-	public int minscore;							// The minimum match score among all member jugglers
+	public int minscore;				// The minimum match score among all member jugglers
 
 	/** Getters */
 	public int getNumber() { return _number; }
@@ -265,17 +263,17 @@ class Circuit
 
 class Juggler
 {
-	private int _number;				// The number of this Juggler /starting from 0/
+	private int _number;		// The number of this Juggler /starting from 0/
 	private int _h;
 	private int _e;
 	private int _p;
 	private int[] _preferences;	// The numbers of this Juggler's preference Circuits
-	private int[] _scores;			// The match scores for _preferences
+	private int[] _scores;		// The match scores for _preferences
 	
-	public boolean assigned;		// A flag indicating this Juggler is assigned a Circuit
-	public int curcircuit;			// The number of the Circuit we'd like to assign this Juggler to
-	public int curscore;				// The match score of for that Circuit
-	public int index;						// The index of the current Circuit in _preferences
+	public boolean assigned;	// A flag indicating this Juggler is assigned a Circuit
+	public int curcircuit;		// The number of the Circuit we'd like to assign this Juggler to
+	public int curscore;		// The match score of for that Circuit
+	public int index;			// The index of the current Circuit in _preferences
 
 	/** Getters */
 	public int getNumber() { return _number; }
