@@ -83,7 +83,7 @@ class JCMatcher
 	private List< Juggler > _jugglers;	
 	private int ncircuits;							// Number of Circuits to be matched
 	private int njugglers;							// Number of Jugglers to be matched
-	private int njpc;										// Number of Jugglers per Circuit
+	private int njpc;							// Number of Jugglers per Circuit
 
 	/** Constructor */
 	public JCMatcher( List< Circuit > circuits, List< Juggler > jugglers )
